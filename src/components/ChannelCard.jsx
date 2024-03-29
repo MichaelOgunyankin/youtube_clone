@@ -1,5 +1,6 @@
+import React from 'react'  
 import { Box, CardContent, CardMedia, Typography } from "@mui/material"
-import { CheckCircle } from "@mui/icons-material"
+import { CheckCircle } from "@mui/icons-material/CheckCircle"
 import { Link } from "react-router-dom"
 import { demoProfilePicture } from "../Utils/constants"
 
@@ -19,7 +20,7 @@ const channelCard = ({channelDetail, marginTop}) => (
           </Typography>
           {channelDetail?.statistics?.subscriberCount && (
             <Typography>
-              {parseInt(channelDetail?.statistics?.subscriberCount).toLocaleString()}Subscribers
+              {parseInt(channelDetail?.statistics?.subscriberCount).toLocaleString()} Subscribers
             </Typography>
           )}
 
