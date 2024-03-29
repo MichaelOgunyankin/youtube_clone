@@ -6,8 +6,8 @@ import { Videos, ChannelCard } from './'
 import { fetchFromApi } from '../Utils/fetchFromApi'
 
 const ChannelDetail = () => {
-  const [channelDetail, setChannelDetail] = useState(null)
-  const [videos, setVideos] = useState([])
+  const [channelDetail, setChannelDetail] = useState()
+  const [videos, setVideos] = useState(null)
 
   const { id } = useParams()
 
