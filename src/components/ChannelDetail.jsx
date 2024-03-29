@@ -12,10 +12,17 @@ const ChannelDetail = () => {
   const { id } = useParams()
 
   useEffect(() => {
-    fetchFromApi(`channels?part=snippet&id=${id}`).then((data) => setChannelDetail(data?.items[0]));
+    const fetchResults = async () => {
+      const data = await fetchFromApi(`channels?part=snippet&id=${id}`)
 
-    fetchFromApi(`search?channelId=${id}&part=snippet&order=date`).then((data) => setVideos(data?.items));
-    }, [id])
+      setChannelDetail(data?.items[0]);
+
+      const videosData = await fetchFromApi(`search?channelId=${id}&part=snippet&order=date`);
+
+      setVideos(videosData?.items);
+    }
+    fetchResults();
+  }, [id])
 
   return (  
     <Box minHeight='95vh'>
@@ -36,4 +43,4 @@ const ChannelDetail = () => {
   )
 }
 
-export default ChannelDetail
+export default ChannelDetail;
